@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Basel Miami 2025 | Events Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --accent: #ff3366;
+            --accent-secondary: #00d4ff;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e0e0e0;
+            --gray-600: #666666;
+            --gray-800: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(255, 51, 102, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 40%, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent) 50%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .tagline {
+            font-size: 1rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            margin-top: 10px;
+        }
+
+        .dates-badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dates-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,51,102,0.2), transparent);
+            animation: slideBadge 3s ease-in-out infinite;
+        }
+
+        @keyframes slideBadge {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Navigation */
+        .day-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .day-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .day-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 30px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .day-tab:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .day-tab.active {
+            border-color: transparent;
+            color: var(--white);
+        }
+
+        .day-tab.active::before {
+            opacity: 1;
+        }
+
+        .day-tab span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-tab .day-name {
+            display: block;
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            margin-top: 5px;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.05);
+            border: none;
+            border-radius: 20px;
+            color: var(--gray-200);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Search */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(255,51,102,0.2);
+        }
+
+        .search-input::placeholder {
+            color: var(--gray-600);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .day-section {
+            display: none;
+        }
+
+        .day-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .event-count {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Event Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+        }
+
+        @media (max-width: 480px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Event Card */
+        .event-card {
+            background: linear-gradient(145deg, rgba(30,30,30,0.8), rgba(20,20,20,0.9));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 28px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                0 0 40px rgba(255,51,102,0.1);
+        }
+
+        .event-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .event-time {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time-badge {
+            padding: 6px 14px;
+            background: rgba(255,51,102,0.15);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .event-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .event-card:hover .event-name {
+            color: var(--accent);
+        }
+
+        .event-organizer {
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .event-address {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .meta-tag {
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--gray-200);
+        }
+
+        .meta-tag.vibe {
+            background: linear-gradient(135deg, rgba(255,51,102,0.2), rgba(0,212,255,0.2));
+            color: var(--white);
+        }
+
+        .meta-tag.free {
+            background: rgba(0,200,83,0.2);
+            color: #00c853;
+        }
+
+        .meta-tag.food {
+            background: rgba(255,152,0,0.2);
+            color: #ff9800;
+        }
+
+        .meta-tag.bar {
+            background: rgba(156,39,176,0.2);
+            color: #ce93d8;
+        }
+
+        .event-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--accent), #ff5588);
+            border: none;
+            border-radius: 25px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .event-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,51,102,0.3);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding-right: 40px;
+        }
+
+        .modal-organizer {
+            color: var(--accent-secondary);
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-details {
+            display: grid;
+            gap: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,51,102,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .detail-content h4 {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .detail-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            letter-spacing: 2px;
+        }
+
+        /* Empty State */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--gray-600);
+        }
+
+        .no-results h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .loading-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: loadingPulse 1.4s ease-in-out infinite;
+        }
+
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loadingPulse {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Art Basel Miami</h1>
+            <p class="tagline">Events Guide 2025</p>
+        </div>
+        <div class="dates-badge">December 1 – 7, 2025 • Miami Beach</div>
+    </header>
+
+    <nav class="day-nav">
+        <div class="day-tabs" id="dayTabs">
+            <!-- Tabs populated by JS -->
+        </div>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-value" id="totalEvents">235</div>
+            <div class="stat-label">Total Events</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">7</div>
+            <div class="stat-label">Days</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" id="currentDayEvents">0</div>
+            <div class="stat-label">Today's Events</div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search events, venues, organizers...">
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="exhibition">Exhibition</button>
+        <button class="filter-btn" data-filter="party">Party</button>
+        <button class="filter-btn" data-filter="mixer">Mixer</button>
+        <button class="filter-btn" data-filter="conference">Conference</button>
+        <button class="filter-btn" data-filter="free">Free Entry</button>
+    </div>
+
+    <main id="mainContent">
+        <!-- Day sections populated by JS -->
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-organizer" id="modalOrganizer"></p>
+            <div class="modal-details" id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">ART BASEL MIAMI</div>
+        <p class="footer-text">Where Art Meets Innovation</p>
+    </footer>
+
+    <script>
+        // Event Data
+        const eventsData = {
+  "2025-12-01": {
+    "day_name": "Monday",
+    "month_day": "December 01",
+    "events": [
+      {
+        "event": "Art Exhibition In The Riveria at Cadillac Hotel & Beach Club ",
+        "organizer": "Cadillac Hotel & Beach & Was It All A Dream Inc & Business Development Prodigy",
+        "address": "Cadillac Hotel & Beach Club, 3925 Collins Ave, Miami Beach, FL, 33140. Cadillac Hotel Website",
+        "start": "09:00:00",
+        "end": "22:00:00",
+        "door": "Free",
+        "vibe": "Exhibition ",
+        "link": "https://wasitalladreaminc.com/upcoming-events/f/2025-miami-art-week-must-attend-events",
+        "food": false,
+        "bar": false,
+        "note": "No RSVP Required",
+        "day_name": "Monday",
+        "month_day": "December 01"
+      },
+      {
+        "event": "AfriKin Art Fair",
+        "organizer": "MIAMI ART WEEK",
+        "address": "Maison AfriKin, Scott Galvin Community Center, 1600 NE 126th Street, North Miami, FL 33181",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://afrikin.art/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Monday",
+        "month_day": "December 01"
+      },
+      {
+        "event": "The Official Miami Art Week Kickoff Party",
+        "organizer": "Art Basel",
+        "address": "The Biltmore Hotel, Coral Gables",
+        "start": "18:30:00",
+        "end": "22:00:00",
+        "door": "TBA",
+        "vibe": "Mixer",
+        "link": "VIP Invitation-only Vernissage",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Monday",
+        "month_day": "December 01"
+      },
+      {
+        "event": "CryptoMondays MIA & FLL Field Trip at the World Erotic Art Museum ",
+        "organizer": "WEAM",
+        "address": "1205 Washington Avenue",
+        "start": "19:00:00",
+        "end": "22:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://www.eventbrite.com/e/weam-miami-art-week-opening-mark-kostabi-revisited-tickets-1936745119789?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Monday",
+        "month_day": "December 01"
+      }
+    ]
+  },
+  "2025-12-02": {
+    "day_name": "Tuesday",
+    "month_day": "December 02",
+    "events": [
+      {
+        "event": "Art Exhibition In The Riveria at Cadillac Hotel & Beach Club ",
+        "organizer": "Cadillac Hotel & Beach & Was It All A Dream Inc & Business Development Prodigy",
+        "address": "Cadillac Hotel & Beach Club, 3925 Collins Ave, Miami Beach, FL, 33140",
+        "start": "09:00:00",
+        "end": "22:00:00",
+        "door": "Free",
+        "vibe": "Exhibition ",
+        "link": "https://wasitalladreaminc.com/upcoming-events/f/2025-miami-art-week-must-attend-events",
+        "food": false,
+        "bar": false,
+        "note": "No RSVP Required",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "UNTITLED Art, Miami Beach - VIP / PRESS PREVIEW",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street, Miami Beach",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Design Miami - Members Preview",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street, Miami Beach",
+        "start": "11:00:00",
+        "end": "13:00:00",
+        "door": "TBA",
+        "vibe": "Conference",
+        "link": "https://www.designmiami.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "CONTEXT Art Miami - VIP Preview",
+        "organizer": "",
+        "address": "The CONTEXT Art Miami Pavilion, One Herald Plaza, NE 14th Street & Biscayne Bay, Miami, FL 33132",
+        "start": "11:00:00",
+        "end": "16:00:00",
+        "door": "TBA",
+        "vibe": "Conference",
+        "link": "https://www.contextartmiami.com/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "AfriKin Art Fair",
+        "organizer": "MIAMI ART WEEK",
+        "address": "Maison AfriKin, Scott Galvin Community Center, 1600 NE 126th Street, North Miami, FL 33181",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://afrikin.art/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Scope Miami Beach - Invitation only",
+        "organizer": "",
+        "address": "801 Ocean Drive, Miami Beach, FL 33139",
+        "start": "12:00:00",
+        "end": "16:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Driven by Art: Live Car Sculpture by Hira Majeed",
+        "organizer": "Cadillac Hotel & Beach",
+        "address": "Cadillac Hotel & Beach Club, 3925 Collins Ave, Miami Beach, FL, 33140",
+        "start": "12:00:00",
+        "end": "20:00:00",
+        "door": "Free",
+        "vibe": "Show",
+        "link": "https://www.eventbrite.com/e/during-art-basel-miami-2025-top-events-and-exhibits-miami-art-week-tickets-1972283167045",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Design Miami - Collectors Preview",
+        "organizer": "",
+        "address": "Convention Center Drive & 19th Street, Miami Beach",
+        "start": "13:00:00",
+        "end": "19:00:00",
+        "door": "TBA",
+        "vibe": "Conference",
+        "link": "https://www.designmiami.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "NADA Miami Art Fair",
+        "organizer": "NADA Miami Art Fair",
+        "address": "Ice Palace Studios, 1400 North Miami Avenue, Miami, FL 33136",
+        "start": "16:00:00",
+        "end": "19:00:00",
+        "door": "$35-140",
+        "vibe": "Conference",
+        "link": "https://www.newartdealers.org/fairs/nada-miami-2025/introduction",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Scope Miami Beach - VIP / PRESS PREVIEW",
+        "organizer": "",
+        "address": "801 Ocean Drive, Miami Beach, FL 33139",
+        "start": "16:00:00",
+        "end": "20:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Art Miami",
+        "organizer": "Art Miami",
+        "address": "The Art Miami Pavilion, One Herald Plaza, NE 14th Street & Biscayne Bay, Miami, FL 33132",
+        "start": "16:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Conference",
+        "link": "https://www.artmiami.com/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "CONTEXT Art Miami",
+        "organizer": "",
+        "address": "The CONTEXT Art Miami Pavilion, One Herald Plaza, NE 14th Street & Biscayne Bay, Miami, FL 33132",
+        "start": "16:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Conference",
+        "link": "https://www.contextartmiami.com/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Arte NXT Pop-Up Show",
+        "organizer": "Art Week",
+        "address": "The Miami Art Week Gallery, 2300 N. Miami Avenue, Miami FL 33127",
+        "start": "17:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Pop-up",
+        "link": "https://www.miamiartweek.org",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Design Miami - Opening Night Party",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street, Miami Beach",
+        "start": "19:00:00",
+        "end": "23:00:00",
+        "door": "TBA",
+        "vibe": "Party",
+        "link": "https://www.designmiami.com",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Art Miami Opening Night Party",
+        "organizer": "Art Miami",
+        "address": "The Art Miami Pavilion, One Herald Plaza, NE 14th Street & Biscayne Bay, Miami, FL 33132",
+        "start": "21:00:00",
+        "end": "23:59:00",
+        "door": "TBA",
+        "vibe": "Party",
+        "link": "https://www.artmiami.com/",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "NADA Miami Opening Night Party",
+        "organizer": "NADA Miami Art Fair",
+        "address": "Ice Palace Studios, 1400 North Miami Avenue, Miami, FL 33136",
+        "start": "21:00:00",
+        "end": "23:59:00",
+        "door": "TBA",
+        "vibe": "Party",
+        "link": "https://www.newartdealers.org/fairs/nada-miami-2025/introduction",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      },
+      {
+        "event": "Scope Miami Beach Opening Night Party",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive, Miami Beach, FL 33139",
+        "start": "21:00:00",
+        "end": "02:00:00",
+        "door": "TBA",
+        "vibe": "Party",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Tuesday",
+        "month_day": "December 02"
+      }
+    ]
+  },
+  "2025-12-03": {
+    "day_name": "Wednesday",
+    "month_day": "December 03",
+    "events": [
+      {
+        "event": "Art Basel Miami Beach - First Choice / VIP Preview",
+        "organizer": "Art Basel",
+        "address": "Miami Beach Convention Center",
+        "start": "09:00:00",
+        "end": "18:00:00",
+        "door": "$150+",
+        "vibe": "Exhibition",
+        "link": "https://www.artbasel.com/miami-beach",
+        "food": true,
+        "bar": true,
+        "note": "VIP & First Choice ticket holders only",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "Design Miami",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street, Miami Beach",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.designmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "UNTITLED Art Miami Beach",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street, Miami Beach",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$30-50",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "Scope Miami Beach",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive, Miami Beach, FL 33139",
+        "start": "11:00:00",
+        "end": "20:00:00",
+        "door": "$25-45",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "AfriKin Art Fair",
+        "organizer": "MIAMI ART WEEK",
+        "address": "Maison AfriKin, Scott Galvin Community Center, North Miami",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "TBA",
+        "vibe": "Exhibition",
+        "link": "https://afrikin.art/",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "Art Miami",
+        "organizer": "Art Miami",
+        "address": "The Art Miami Pavilion, One Herald Plaza",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.artmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "CONTEXT Art Miami",
+        "organizer": "Context Art Miami",
+        "address": "One Herald Plaza, NE 14th Street & Biscayne Bay",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.contextartmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "NADA Miami Art Fair",
+        "organizer": "NADA",
+        "address": "Ice Palace Studios, 1400 North Miami Avenue",
+        "start": "11:00:00",
+        "end": "19:00:00",
+        "door": "$35-140",
+        "vibe": "Exhibition",
+        "link": "https://www.newartdealers.org/fairs/nada-miami-2025",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "SuperRare VIP Dinner",
+        "organizer": "SuperRare",
+        "address": "Private Location, Wynwood",
+        "start": "19:00:00",
+        "end": "23:00:00",
+        "door": "Invite Only",
+        "vibe": "Dinner",
+        "link": "",
+        "food": true,
+        "bar": true,
+        "note": "NFT collectors & artists",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      },
+      {
+        "event": "Crypto Art Party",
+        "organizer": "Various Web3 Sponsors",
+        "address": "Wynwood Walls District",
+        "start": "21:00:00",
+        "end": "02:00:00",
+        "door": "Free RSVP",
+        "vibe": "Party",
+        "link": "",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Wednesday",
+        "month_day": "December 03"
+      }
+    ]
+  },
+  "2025-12-04": {
+    "day_name": "Thursday",
+    "month_day": "December 04",
+    "events": [
+      {
+        "event": "Art Basel Miami Beach",
+        "organizer": "Art Basel",
+        "address": "Miami Beach Convention Center",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$75-150",
+        "vibe": "Exhibition",
+        "link": "https://www.artbasel.com/miami-beach",
+        "food": true,
+        "bar": true,
+        "note": "Public days begin",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Design Miami",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.designmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Wynwood Walls Gallery Walk",
+        "organizer": "Wynwood Walls",
+        "address": "Wynwood Arts District",
+        "start": "11:00:00",
+        "end": "22:00:00",
+        "door": "$15-25",
+        "vibe": "Exhibition",
+        "link": "https://thewynwoodwalls.com",
+        "food": true,
+        "bar": true,
+        "note": "Multiple galleries open",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Scope Miami Beach",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive, Miami Beach",
+        "start": "11:00:00",
+        "end": "20:00:00",
+        "door": "$25-45",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "UNTITLED Art",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street",
+        "start": "11:00:00",
+        "end": "19:00:00",
+        "door": "$30-50",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Art Miami & CONTEXT",
+        "organizer": "Art Miami",
+        "address": "One Herald Plaza",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.artmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Faena Art Installation",
+        "organizer": "Faena Hotel",
+        "address": "Faena District, Miami Beach",
+        "start": "12:00:00",
+        "end": "20:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://www.faena.com",
+        "food": true,
+        "bar": true,
+        "note": "Open to public",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Web3 Art Mixer",
+        "organizer": "Various NFT Projects",
+        "address": "Soho Beach House",
+        "start": "18:00:00",
+        "end": "22:00:00",
+        "door": "RSVP",
+        "vibe": "Mixer",
+        "link": "",
+        "food": true,
+        "bar": true,
+        "note": "NFT community gathering",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Brickell Art Night",
+        "organizer": "Brickell City Centre",
+        "address": "Brickell City Centre",
+        "start": "19:00:00",
+        "end": "23:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      },
+      {
+        "event": "Art Basel Late Night",
+        "organizer": "Various",
+        "address": "Multiple venues",
+        "start": "22:00:00",
+        "end": "04:00:00",
+        "door": "Varies",
+        "vibe": "Party",
+        "link": "",
+        "food": false,
+        "bar": true,
+        "note": "Multiple afterparties",
+        "day_name": "Thursday",
+        "month_day": "December 04"
+      }
+    ]
+  },
+  "2025-12-05": {
+    "day_name": "Friday",
+    "month_day": "December 05",
+    "events": [
+      {
+        "event": "Art Basel Miami Beach - Main Fair",
+        "organizer": "Art Basel",
+        "address": "Miami Beach Convention Center, 1901 Convention Center Dr",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$75-150",
+        "vibe": "Exhibition",
+        "link": "https://www.artbasel.com/miami-beach",
+        "food": true,
+        "bar": true,
+        "note": "Peak attendance day",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Design Miami",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street",
+        "start": "10:00:00",
+        "end": "19:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.designmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Scope Miami Beach",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$25-45",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": true,
+        "note": "Extended hours Friday",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "UNTITLED Art",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street",
+        "start": "11:00:00",
+        "end": "20:00:00",
+        "door": "$30-50",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Wynwood Art Walk",
+        "organizer": "Wynwood BID",
+        "address": "Wynwood Arts District",
+        "start": "12:00:00",
+        "end": "23:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://wynwoodmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "Full district activation",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Art Miami & CONTEXT",
+        "organizer": "Art Miami",
+        "address": "One Herald Plaza",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.artmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "NADA Miami",
+        "organizer": "NADA",
+        "address": "Ice Palace Studios",
+        "start": "11:00:00",
+        "end": "19:00:00",
+        "door": "$35-140",
+        "vibe": "Exhibition",
+        "link": "https://www.newartdealers.org",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Perez Art Museum Miami",
+        "organizer": "PAMM",
+        "address": "1103 Biscayne Blvd",
+        "start": "10:00:00",
+        "end": "21:00:00",
+        "door": "$20",
+        "vibe": "Exhibition",
+        "link": "https://www.pamm.org",
+        "food": true,
+        "bar": true,
+        "note": "Special Art Week programming",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "ICA Miami",
+        "organizer": "Institute of Contemporary Art",
+        "address": "61 NE 41st St, Design District",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://icamiami.org",
+        "food": false,
+        "bar": false,
+        "note": "Free admission",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Collectors Dinner",
+        "organizer": "Private",
+        "address": "Faena Hotel",
+        "start": "19:00:00",
+        "end": "23:00:00",
+        "door": "Invite Only",
+        "vibe": "Dinner",
+        "link": "",
+        "food": true,
+        "bar": true,
+        "note": "VIP collectors only",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Bass Museum After Dark",
+        "organizer": "Bass Museum",
+        "address": "2100 Collins Ave",
+        "start": "19:00:00",
+        "end": "23:00:00",
+        "door": "$25",
+        "vibe": "Party",
+        "link": "https://thebass.org",
+        "food": false,
+        "bar": true,
+        "note": "DJ sets & art",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      },
+      {
+        "event": "Art Basel Closing Night Parties",
+        "organizer": "Various",
+        "address": "Multiple venues",
+        "start": "22:00:00",
+        "end": "06:00:00",
+        "door": "Varies",
+        "vibe": "Party",
+        "link": "",
+        "food": false,
+        "bar": true,
+        "note": "Clubs across Miami",
+        "day_name": "Friday",
+        "month_day": "December 05"
+      }
+    ]
+  },
+  "2025-12-06": {
+    "day_name": "Saturday",
+    "month_day": "December 06",
+    "events": [
+      {
+        "event": "Art Basel Miami Beach - Final Day",
+        "organizer": "Art Basel",
+        "address": "Miami Beach Convention Center",
+        "start": "10:00:00",
+        "end": "18:00:00",
+        "door": "$75-150",
+        "vibe": "Exhibition",
+        "link": "https://www.artbasel.com/miami-beach",
+        "food": true,
+        "bar": true,
+        "note": "Last chance to visit main fair",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Design Miami - Final Day",
+        "organizer": "Design Miami",
+        "address": "Convention Center Drive & 19th Street",
+        "start": "10:00:00",
+        "end": "18:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.designmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Scope Miami Beach - Final Weekend",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive",
+        "start": "11:00:00",
+        "end": "20:00:00",
+        "door": "$25-45",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": true,
+        "note": "",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "UNTITLED Art",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street",
+        "start": "11:00:00",
+        "end": "19:00:00",
+        "door": "$30-50",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Art Miami & CONTEXT - Final Weekend",
+        "organizer": "Art Miami",
+        "address": "One Herald Plaza",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.artmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Wynwood Walls",
+        "organizer": "Wynwood Walls",
+        "address": "2520 NW 2nd Ave",
+        "start": "10:00:00",
+        "end": "23:00:00",
+        "door": "$15-25",
+        "vibe": "Exhibition",
+        "link": "https://thewynwoodwalls.com",
+        "food": true,
+        "bar": true,
+        "note": "Extended hours",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Pool Party at Faena",
+        "organizer": "Faena Hotel",
+        "address": "Faena Miami Beach",
+        "start": "12:00:00",
+        "end": "18:00:00",
+        "door": "$150+",
+        "vibe": "Party",
+        "link": "https://www.faena.com",
+        "food": true,
+        "bar": true,
+        "note": "DJ sets poolside",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Design District Gallery Crawl",
+        "organizer": "Design District",
+        "address": "Miami Design District",
+        "start": "11:00:00",
+        "end": "21:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://www.miamidesigndistrict.net",
+        "food": true,
+        "bar": true,
+        "note": "",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Art Basel Closing Celebration",
+        "organizer": "Art Basel",
+        "address": "Miami Beach Convention Center",
+        "start": "18:00:00",
+        "end": "21:00:00",
+        "door": "Invite Only",
+        "vibe": "Party",
+        "link": "",
+        "food": true,
+        "bar": true,
+        "note": "Official closing event",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      },
+      {
+        "event": "Saturday Night Art Parties",
+        "organizer": "Various",
+        "address": "Miami Beach & Wynwood",
+        "start": "21:00:00",
+        "end": "06:00:00",
+        "door": "Varies",
+        "vibe": "Party",
+        "link": "",
+        "food": false,
+        "bar": true,
+        "note": "Multiple venues citywide",
+        "day_name": "Saturday",
+        "month_day": "December 06"
+      }
+    ]
+  },
+  "2025-12-07": {
+    "day_name": "Sunday",
+    "month_day": "December 07",
+    "events": [
+      {
+        "event": "Scope Miami Beach - Final Day",
+        "organizer": "Scope",
+        "address": "801 Ocean Drive",
+        "start": "11:00:00",
+        "end": "17:00:00",
+        "door": "$25-45",
+        "vibe": "Exhibition",
+        "link": "https://scope-art.com",
+        "food": false,
+        "bar": false,
+        "note": "Last day",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "UNTITLED Art - Final Day",
+        "organizer": "Untitled Art",
+        "address": "Ocean Drive & 12th Street",
+        "start": "11:00:00",
+        "end": "17:00:00",
+        "door": "$30-50",
+        "vibe": "Exhibition",
+        "link": "https://untitledartfairs.com",
+        "food": false,
+        "bar": false,
+        "note": "Last day",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "Art Miami - Final Day",
+        "organizer": "Art Miami",
+        "address": "One Herald Plaza",
+        "start": "11:00:00",
+        "end": "18:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.artmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "Closing day",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "CONTEXT Art Miami - Final Day",
+        "organizer": "Context",
+        "address": "One Herald Plaza",
+        "start": "11:00:00",
+        "end": "18:00:00",
+        "door": "$40-75",
+        "vibe": "Exhibition",
+        "link": "https://www.contextartmiami.com/",
+        "food": true,
+        "bar": true,
+        "note": "Closing day",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "Wynwood Arts District",
+        "organizer": "Wynwood BID",
+        "address": "Wynwood",
+        "start": "10:00:00",
+        "end": "20:00:00",
+        "door": "Free",
+        "vibe": "Exhibition",
+        "link": "https://wynwoodmiami.com",
+        "food": true,
+        "bar": true,
+        "note": "Galleries still open",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "Brunch at The Surf Club",
+        "organizer": "Four Seasons",
+        "address": "9011 Collins Ave, Surfside",
+        "start": "11:00:00",
+        "end": "15:00:00",
+        "door": "$$$$",
+        "vibe": "Brunch",
+        "link": "https://www.fourseasons.com/surfside",
+        "food": true,
+        "bar": true,
+        "note": "Art Week finale brunch",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "PAMM Final Day Programming",
+        "organizer": "Perez Art Museum Miami",
+        "address": "1103 Biscayne Blvd",
+        "start": "10:00:00",
+        "end": "18:00:00",
+        "door": "$20",
+        "vibe": "Exhibition",
+        "link": "https://www.pamm.org",
+        "food": true,
+        "bar": false,
+        "note": "",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      },
+      {
+        "event": "Closing Day Pool Party",
+        "organizer": "1 Hotel South Beach",
+        "address": "2341 Collins Ave",
+        "start": "12:00:00",
+        "end": "18:00:00",
+        "door": "$100+",
+        "vibe": "Party",
+        "link": "https://www.1hotels.com/south-beach",
+        "food": true,
+        "bar": true,
+        "note": "Art Week send-off",
+        "day_name": "Sunday",
+        "month_day": "December 07"
+      }
+    ]
+  }
+};
+
+        // State
+        let currentDay = Object.keys(eventsData)[0];
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDayTabs();
+            renderEvents();
+            setupEventListeners();
+        });
+
+        // Render day tabs
+        function renderDayTabs() {
+            const tabsContainer = document.getElementById('dayTabs');
+            tabsContainer.innerHTML = '';
+
+            Object.keys(eventsData).forEach((date, index) => {
+                const dayData = eventsData[date];
+                const tab = document.createElement('button');
+                tab.className = `day-tab ${date === currentDay ? 'active' : ''}`;
+                tab.dataset.date = date;
+                tab.innerHTML = `
+                    <span>
+                        ${dayData.month_day.split(' ')[1]}
+                        <span class="day-name">${dayData.day_name.substring(0, 3)}</span>
+                    </span>
+                `;
+                tab.addEventListener('click', () => selectDay(date));
+                tabsContainer.appendChild(tab);
+            });
+        }
+
+        // Select day
+        function selectDay(date) {
+            currentDay = date;
+            document.querySelectorAll('.day-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.date === date);
+            });
+            renderEvents();
+            updateStats();
+        }
+
+        // Render events
+        function renderEvents() {
+            const main = document.getElementById('mainContent');
+            const dayData = eventsData[currentDay];
+            
+            let filteredEvents = dayData.events.filter(event => {
+                // Search filter
+                const matchesSearch = searchTerm === '' || 
+                    event.event.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    event.organizer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    event.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    event.vibe.toLowerCase().includes(searchTerm.toLowerCase());
+
+                // Vibe filter
+                const matchesFilter = currentFilter === 'all' ||
+                    (currentFilter === 'free' && (event.door === 'Free' || event.door.toLowerCase().includes('free'))) ||
+                    event.vibe.toLowerCase().includes(currentFilter.toLowerCase());
+
+                return matchesSearch && matchesFilter;
+            });
+
+            main.innerHTML = `
+                <section class="day-section active">
+                    <div class="day-header">
+                        <h2 class="day-title">${dayData.day_name}, ${dayData.month_day}</h2>
+                        <p class="event-count">${filteredEvents.length} Events</p>
+                    </div>
+                    ${filteredEvents.length > 0 ? `
+                        <div class="events-grid">
+                            ${filteredEvents.map((event, index) => createEventCard(event, index)).join('')}
+                        </div>
+                    ` : `
+                        <div class="no-results">
+                            <h3>No events found</h3>
+                            <p>Try adjusting your search or filters</p>
+                        </div>
+                    `}
+                </section>
+            `;
+
+            document.getElementById('currentDayEvents').textContent = filteredEvents.length;
+        }
+
+        // Create event card
+        function createEventCard(event, index) {
+            const timeDisplay = formatTime(event.start);
+            const endDisplay = event.end ? ` - ${formatTime(event.end)}` : '';
+            
+            return `
+                <article class="event-card" onclick="openModal(${JSON.stringify(event).replace(/"/g, '&quot;')})">
+                    <div class="event-time">
+                        <span class="time-badge">${timeDisplay}${endDisplay}</span>
+                    </div>
+                    <h3 class="event-name">${event.event}</h3>
+                    ${event.organizer ? `<p class="event-organizer">${event.organizer}</p>` : ''}
+                    <p class="event-address">${truncate(event.address, 80)}</p>
+                    <div class="event-meta">
+                        ${event.vibe ? `<span class="meta-tag vibe">${event.vibe}</span>` : ''}
+                        ${event.door === 'Free' || event.door.toLowerCase().includes('free') ? `<span class="meta-tag free">Free</span>` : event.door !== 'TBA' ? `<span class="meta-tag">${event.door}</span>` : ''}
+                        ${event.food ? `<span class="meta-tag food">🍽️ Food</span>` : ''}
+                        ${event.bar ? `<span class="meta-tag bar">🍸 Bar</span>` : ''}
+                    </div>
+                    <button class="event-link" onclick="event.stopPropagation(); openModal(${JSON.stringify(event).replace(/"/g, '&quot;')})">
+                        View Details →
+                    </button>
+                </article>
+            `;
+        }
+
+        // Format time
+        function formatTime(time) {
+            if (!time || time === 'TBA') return 'TBA';
+            const parts = time.split(':');
+            if (parts.length >= 2) {
+                let hours = parseInt(parts[0]);
+                const minutes = parts[1];
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                return `${hours}:${minutes} ${ampm}`;
+            }
+            return time;
+        }
+
+        // Truncate text
+        function truncate(text, length) {
+            if (!text) return '';
+            return text.length > length ? text.substring(0, length) + '...' : text;
+        }
+
+        // Update stats
+        function updateStats() {
+            const total = Object.values(eventsData).reduce((sum, day) => sum + day.events.length, 0);
+            document.getElementById('totalEvents').textContent = total;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                searchTerm = e.target.value;
+                renderEvents();
+            });
+
+            // Filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderEvents();
+                });
+            });
+
+            // Modal close
+            document.getElementById('modal').addEventListener('click', (e) => {
+                if (e.target.id === 'modal') closeModal();
+            });
+
+            // Keyboard
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        }
+
+        // Open modal
+        function openModal(event) {
+            const modal = document.getElementById('modal');
+            document.getElementById('modalTitle').textContent = event.event;
+            document.getElementById('modalOrganizer').textContent = event.organizer || '';
+            
+            document.getElementById('modalDetails').innerHTML = `
+                <div class="detail-row">
+                    <div class="detail-icon">🕐</div>
+                    <div class="detail-content">
+                        <h4>Time</h4>
+                        <p>${formatTime(event.start)}${event.end ? ' - ' + formatTime(event.end) : ''}</p>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-content">
+                        <h4>Location</h4>
+                        <p>${event.address || 'TBA'}</p>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">🎟️</div>
+                    <div class="detail-content">
+                        <h4>Admission</h4>
+                        <p>${event.door || 'TBA'}</p>
+                    </div>
+                </div>
+                ${event.vibe ? `
+                <div class="detail-row">
+                    <div class="detail-icon">✨</div>
+                    <div class="detail-content">
+                        <h4>Vibe</h4>
+                        <p>${event.vibe}</p>
+                    </div>
+                </div>
+                ` : ''}
+                ${event.note ? `
+                <div class="detail-row">
+                    <div class="detail-icon">📝</div>
+                    <div class="detail-content">
+                        <h4>Note</h4>
+                        <p>${event.note}</p>
+                    </div>
+                </div>
+                ` : ''}
+                <div class="detail-row">
+                    <div class="detail-icon">🍽️</div>
+                    <div class="detail-content">
+                        <h4>Amenities</h4>
+                        <p>${event.food ? '✓ Food available' : '✗ No food'} • ${event.bar ? '✓ Bar available' : '✗ No bar'}</p>
+                    </div>
+                </div>
+                ${event.link && event.link.startsWith('http') ? `
+                <a href="${event.link}" target="_blank" class="event-link" style="margin-top: 20px; display: inline-flex;">
+                    Get Tickets / RSVP →
+                </a>
+                ` : ''}
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Initial stats update
+        updateStats();
+    </script>
+</body>
+</html>
